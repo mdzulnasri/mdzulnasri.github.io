@@ -72,8 +72,24 @@ const projects = [
     image: "assets/projects/project3.png",
     github: "",
     demo: ""
-  }
+  },
 
+  {
+    title: "Innovation PRIDE Showcase 13th Edition",
+    subtitle: "LINKING PARK",
+    category: "Innovations",
+    description:
+      "An event where students from presented and exhibited creativity in innovations through prototypes.",
+    tech: ["Parking Management System", "Prototype", "Arduino Circuit & Coding"],
+    highlights: [
+      "Innovation in Car Parking searching",
+      "Navigation to Car Parking",
+      "Seemless booking, navigation and checkout process"
+    ],
+    image: "assets/projects/project4.jpg",
+    github: "",
+    demo: ""
+  }
   /*
   =========================================================
   COPY THIS TEMPLATE TO ADD A FUTURE PROJECT
