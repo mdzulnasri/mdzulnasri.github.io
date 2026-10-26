@@ -2,18 +2,17 @@
 ===========================================================
 ZULNASRI PORTFOLIO — PROJECTS
 ===========================================================
-YES — YOU CAN ADD MORE PROJECTS IN THE FUTURE.
+Every project card, filter button, and detail popup on the
+site is generated from this list. To add a project:
 
-HOW:
-1. Copy one project block.
-2. Paste it before the closing ];
-3. Edit the details.
-4. Put your screenshot inside assets/projects/
-5. Update the image path.
+1. Put a screenshot in assets/projects/ (e.g. my-project.jpg).
+2. Copy the TEMPLATE at the bottom of this file.
+3. Paste it as a new item inside the [ ] list below
+   (remember the comma between items).
+4. Fill in the details. Save. Refresh the browser.
 
-If you do not have a GitHub or live demo link, leave:
-github: "",
-demo: ""
+You never need to edit index.html to add a project.
+See README.md for a full explanation of every field.
 ===========================================================
 */
 
@@ -22,6 +21,7 @@ const projects = [
     title: "Automotive Accessories Inventory System",
     subtitle: "Applying Just-In-Time (JIT) Principles",
     category: "Final Year Project",
+    featured: true,
     description:
       "A role-based automotive accessories inventory system designed around Just-In-Time principles to improve stock monitoring, part requests, purchasing, supplier coordination, and reporting.",
     tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "JIT"],
@@ -42,10 +42,10 @@ const projects = [
     subtitle: "Operational Decision Support Using Predictive Modelling",
     category: "Data Analytics",
     description:
-      "Developed predictive analysis and Power BI dashboards for Heart Disease Prediction using Naive Bayes Classification to support clearer interpretation of model results and decision-making.",
+      "Developed predictive analysis and Power BI dashboards for heart disease prediction using Naive Bayes classification, making model results easier to interpret and act on.",
     tech: ["WEKA", "Excel", "Power BI", "RapidMiner", "Naive Bayes"],
     highlights: [
-      "Heart disease prediction using Naive Bayes Classification",
+      "Heart disease prediction using Naive Bayes classification",
       "Power BI dashboard development",
       "Predictive modelling workflow",
       "Data preparation and analysis",
@@ -61,7 +61,7 @@ const projects = [
     subtitle: "Predictive Analytics for Automotive Companies",
     category: "Predictive Analytics",
     description:
-      "Created predictive analysis dashboards to transform operational data into business insights.",
+      "Built predictive analysis dashboards that transform operational automotive data into clear business insights for pricing decisions.",
     tech: ["Predictive Modelling", "Data Analytics", "Dashboarding", "Business Insights"],
     highlights: [
       "Automotive price prediction",
@@ -75,43 +75,48 @@ const projects = [
   },
 
   {
-    title: "Innovation PRIDE Showcase 13th Edition",
-    subtitle: "LINKING PARK",
-    category: "Innovations",
+    title: "Linking Park — Smart Parking Prototype",
+    subtitle: "Innovation PRIDE Showcase, 13th Edition",
+    category: "Innovation",
     description:
-      "An event where students from presented and exhibited creativity in innovations through prototypes.",
+      "A smart parking prototype presented at the Innovation PRIDE Showcase, where students exhibit creative innovations through working prototypes.",
     tech: ["Parking Management System", "Prototype", "Arduino Circuit & Coding"],
     highlights: [
-      "Innovation in Car Parking searching",
-      "Navigation to Car Parking",
-      "Seemless booking, navigation and checkout process"
+      "Faster search for available parking spaces",
+      "Navigation to the selected parking spot",
+      "Seamless booking, navigation, and checkout process"
     ],
     image: "assets/projects/project4.jpg",
     github: "",
     demo: ""
   }
+
   /*
   =========================================================
-  COPY THIS TEMPLATE TO ADD A FUTURE PROJECT
+  TEMPLATE — COPY EVERYTHING BETWEEN THE LINES BELOW
+  (including the leading comma) AND PASTE IT ABOVE THIS
+  COMMENT, right after the last project's closing }
   =========================================================
 
   ,
   {
     title: "Your Project Name",
-    subtitle: "Your Project Subtitle",
-    category: "Your Category",
+    subtitle: "A short one-line tagline",
+    category: "Data Analytics",
+    featured: false,
     description:
-      "Write a short description explaining what you created and why it matters.",
+      "Two or three sentences: the problem, what you built, and the result.",
     tech: ["Tool 1", "Tool 2", "Tool 3"],
     highlights: [
-      "Key point 1",
-      "Key point 2",
-      "Key point 3"
+      "Key feature or result 1",
+      "Key feature or result 2",
+      "Key feature or result 3"
     ],
     image: "assets/projects/your-project-image.jpg",
     github: "",
     demo: ""
   }
+
   =========================================================
   */
 ];

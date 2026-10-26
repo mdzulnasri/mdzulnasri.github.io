@@ -3,14 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Muhamad Zulnasri Ahmad Faizal — Business Computing, Data & Business Analysis, and Digital Solutions." />
+  <meta name="description" content="Portfolio of Muhamad Zulnasri Ahmad Faizal — Business Computing student focused on data analysis, business analysis, and digital solutions." />
+  <meta name="theme-color" content="#060b16" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Zulnasri | Business Computing Portfolio" />
+  <meta property="og:description" content="Turning real business needs into data-driven, practical digital solutions." />
+  <meta property="og:image" content="assets/images/profile.png" />
   <title>Zulnasri | Business Computing Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234ba8ff'/%3E%3Cstop offset='1' stop-color='%23b89cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23060b16'%3EZ%3C/text%3E%3C/svg%3E" />
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      try {
+        var saved = localStorage.getItem("portfolio-theme");
+        var theme = saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="backdrop" aria-hidden="true">
+    <div class="grid-lines"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <a href="#home" class="brand" aria-label="Go to home">
       <span class="brand-mark">Z</span>
       <span>ZULNASRI</span>
@@ -25,8 +49,12 @@
     </nav>
 
     <div class="header-actions">
-      <button id="themeToggle" class="icon-button" aria-label="Toggle light and dark mode" title="Toggle theme">◐</button>
-      <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <a class="header-cta" href="assets/resume/Zulnasri_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <button id="themeToggle" class="icon-button" aria-label="Toggle light and dark mode" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+      </button>
+      <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -37,48 +65,83 @@
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
+      <a href="assets/resume/Zulnasri_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
+    <!-- ================= HERO ================= -->
     <section class="hero shell" id="home">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">BUSINESS COMPUTING • DATA • DIGITAL SOLUTIONS</p>
-        <h1>
-          Welcome, I am <span class="gradient-text">Zulnasri.</span><br />
-          Transforming real business needs into digital solutions.
-        </h1>
-        <p class="hero-description">
-          Business Computing student with a strong interest in using data, business understanding,
-          and information systems to create practical digital solutions for real operational needs.
-        </p>
-        <div class="hero-buttons">
-          <a class="button primary" href="#projects">View My Projects</a>
-          <a class="button secondary" href="assets/resume/Zulnasri_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+      <div class="hero-copy">
+        <div class="status-pill reveal">
+          <span class="pulse-dot"></span>
+          Open to internship opportunities
         </div>
+        <h1 class="reveal">
+          Hi, I'm <span class="gradient-text">Zulnasri.</span><br />
+          I turn business needs into
+          <span class="rotator" aria-live="polite"><span id="rotatingWord">data insights.</span><span class="caret" aria-hidden="true"></span></span>
+        </h1>
+        <p class="hero-description reveal">
+          Business Computing student at UiTM, combining business understanding, data analysis,
+          and information systems to build practical solutions for real operational problems.
+        </p>
+        <div class="hero-buttons reveal">
+          <a class="button primary magnetic" href="#projects">
+            View My Projects
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="button secondary magnetic" href="assets/resume/Zulnasri_Resume.pdf" target="_blank" rel="noopener">
+            Download Resume
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          </a>
+        </div>
+
+        <dl class="hero-stats reveal">
+          <div><dt>Projects</dt><dd><span data-count="projects">0</span>+</dd></div>
+          <div><dt>Tools &amp; skills</dt><dd><span data-count="skills">0</span>+</dd></div>
+          <div><dt>Experiences</dt><dd><span data-count="experience">0</span></dd></div>
+        </dl>
       </div>
 
       <div class="hero-profile reveal">
-        <div class="profile-frame">
+        <div class="profile-frame tilt">
           <div class="profile-image-wrap">
-            <img src="assets/images/profile.png" alt="Zulnasri profile picture" class="profile-image"
+            <img src="assets/images/profile.png" alt="Portrait of Zulnasri" class="profile-image"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
             <div class="profile-fallback">
-              <div><strong>ZA</strong><span>Add your photo as<br>assets/images/profile.jpg</span></div>
+              <div><strong>ZA</strong><span>Add your photo as<br>assets/images/profile.png</span></div>
             </div>
           </div>
           <div class="profile-content">
-            <p class="small-label">CURRENT DIRECTION</p>
-            <h2>Data & Business Analysis</h2>
+            <p class="small-label">Current direction</p>
+            <h2>Data &amp; Business Analysis</h2>
+            <p class="profile-meta">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              UiTM Kuala Terengganu, Malaysia
+            </p>
           </div>
+          <span class="float-badge badge-1">📊 Power BI</span>
+          <span class="float-badge badge-2">🗄️ SQL</span>
+          <span class="float-badge badge-3">⚙️ PHP</span>
         </div>
       </div>
     </section>
 
+    <!-- ================= TOOL MARQUEE ================= -->
+    <div class="marquee" aria-label="Tools I work with">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Power BI</span><span>SQL</span><span>Microsoft Excel</span><span>PHP</span><span>MySQL</span>
+        <span>RapidMiner</span><span>WEKA</span><span>JavaScript</span><span>HTML &amp; CSS</span>
+        <span>Data Visualization</span><span>Predictive Analytics</span><span>Arduino</span><span>Business Analysis</span>
+      </div>
+    </div>
+
+    <!-- ================= ABOUT ================= -->
     <section class="section shell" id="about">
       <div class="section-intro reveal">
-        <p class="eyebrow">ABOUT ME</p>
-        <h2>Business-focused, adaptable, and interested in solving problems through technology.</h2>
+        <p class="eyebrow"><span class="index">01</span> About me</p>
+        <h2>Business-focused, adaptable, and driven to solve problems through technology.</h2>
       </div>
 
       <div class="about-layout">
@@ -89,34 +152,38 @@
           </p>
           <p>
             My academic background combines business knowledge, system development, analytics, documentation, and communication.
-            I am especially interested in opportunities where I can contribute through analysis, teamwork, adaptability,
+            I am especially interested in roles where I can contribute through analysis, teamwork, adaptability,
             and practical digital problem-solving.
           </p>
         </div>
 
         <div class="about-details reveal">
           <div class="detail">
-            <span>Main Interests</span>
+            <span>Main interests</span>
             <strong>Data Analysis • Business Analysis • Information Systems</strong>
           </div>
           <div class="detail">
-            <span>Also Experienced In</span>
+            <span>Also experienced in</span>
             <strong>Web Development • Database Systems • Reporting • Presentation</strong>
+          </div>
+          <div class="detail">
+            <span>Looking for</span>
+            <strong>Internship in business, data, or systems analysis</strong>
           </div>
         </div>
       </div>
 
-      <div class="education-section reveal">
-        <div class="subsection-heading">
-          <p class="eyebrow">EDUCATION HISTORY</p>
+      <div class="education-section">
+        <div class="subsection-heading reveal">
+          <p class="eyebrow">Education</p>
           <h3>Academic background</h3>
         </div>
 
         <div class="education-grid">
-          <article class="education-card">
+          <article class="education-card reveal">
             <div class="education-number">01</div>
             <div>
-              <span class="education-level">BACHELOR'S DEGREE</span>
+              <span class="education-level">Bachelor's degree</span>
               <h4>Bachelor of Information Systems (Hons.) Business Computing</h4>
               <p>Universiti Teknologi MARA (UiTM)</p>
               <p class="education-note">
@@ -125,10 +192,10 @@
             </div>
           </article>
 
-          <article class="education-card">
+          <article class="education-card reveal">
             <div class="education-number">02</div>
             <div>
-              <span class="education-level">MATRICULATION</span>
+              <span class="education-level">Matriculation</span>
               <h4>Computer Science</h4>
               <p>Selangor Matriculation College</p>
               <p class="education-note">
@@ -140,33 +207,46 @@
       </div>
     </section>
 
+    <!-- ================= SKILLS ================= -->
     <section class="section shell" id="skills">
       <div class="section-intro reveal">
-        <p class="eyebrow">SKILLS & TOOLS</p>
-        <h2>Skills I use to analyse, develop, and communicate solutions.</h2>
+        <p class="eyebrow"><span class="index">02</span> Skills &amp; tools</p>
+        <h2>The toolkit I use to analyse, build, and communicate solutions.</h2>
       </div>
 
       <div class="skill-grid">
-        <article class="skill-card reveal">
+        <article class="skill-card spotlight reveal">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          </div>
           <span class="card-number">01</span>
-          <h3>Data & Analytics</h3>
+          <h3>Data &amp; Analytics</h3>
+          <p class="skill-blurb">Cleaning, modelling, and visualising data so decisions are backed by evidence.</p>
           <div class="chip-wrap">
             <span>Power BI</span><span>Microsoft Excel</span><span>SQL</span><span>RapidMiner</span>
             <span>WEKA</span><span>Data Visualization</span><span>Predictive Analytics</span>
           </div>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card spotlight reveal">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+          </div>
           <span class="card-number">02</span>
           <h3>System Development</h3>
+          <p class="skill-blurb">Building database-driven web systems that match how a business actually works.</p>
           <div class="chip-wrap">
             <span>PHP</span><span>MySQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Database Design</span>
           </div>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card spotlight reveal">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M17 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-3A3.5 3.5 0 0 0 7 18.5V20"/><circle cx="12" cy="8" r="3.5"/><path d="M21 20v-1a3 3 0 0 0-2.4-2.9M3 20v-1a3 3 0 0 1 2.4-2.9"/></svg>
+          </div>
           <span class="card-number">03</span>
-          <h3>Business & Communication</h3>
+          <h3>Business &amp; Communication</h3>
+          <p class="skill-blurb">Translating stakeholder needs into clear requirements, documents, and presentations.</p>
           <div class="chip-wrap">
             <span>Problem Solving</span><span>Business Requirement Analysis</span><span>Documentation</span><span>Presentation</span>
           </div>
@@ -174,70 +254,111 @@
       </div>
     </section>
 
+    <!-- ================= PROJECTS ================= -->
     <section class="section shell" id="projects">
       <div class="project-heading reveal">
         <div>
-          <p class="eyebrow">SELECTED PROJECTS</p>
+          <p class="eyebrow"><span class="index">03</span> Selected projects</p>
           <h2>Projects that connect business needs, systems, and analytics.</h2>
         </div>
         <p class="section-note">
-          Projects are based on studies <strong>Management Information System, Data Mining and Power BI</strong>, ,UITM Kuala Terengganu
+          Built through coursework in <strong>Management Information Systems, Data Mining, and Power BI</strong> at UiTM Kuala Terengganu.
         </p>
       </div>
+
+      <div id="projectFilters" class="project-filters reveal" role="tablist" aria-label="Filter projects by category"></div>
       <div id="projectGrid" class="project-grid"></div>
     </section>
 
+    <!-- ================= EXPERIENCE ================= -->
     <section class="section shell" id="experience">
       <div class="section-intro reveal">
-        <p class="eyebrow">WORKING EXPERIENCE</p>
-        <h2>Experience that strengthened my communication, teamwork, and business awareness.</h2>
+        <p class="eyebrow"><span class="index">04</span> Experience</p>
+        <h2>Experience that sharpened my communication, teamwork, and business awareness.</h2>
       </div>
 
-      <div class="experience-grid">
-        <article class="experience-card reveal">
-          <span class="experience-type">WORK EXPERIENCE</span>
-          <h3>PITA Athletics</h3>
-          <p class="experience-role">Direct Seller & Stock Organizer • 2024–2026</p>
-          <p>Supported direct sales, organised stock, assisted booth operations, and communicated with customers during product sales activities.</p>
-        </article>
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <article class="experience-card">
+            <div class="experience-top">
+              <span class="experience-type">Work experience</span>
+              <span class="experience-date">2024 – 2026</span>
+            </div>
+            <h3>PITA Athletics</h3>
+            <p class="experience-role">Direct Seller &amp; Stock Organizer</p>
+            <p>Supported direct sales, organised stock, assisted booth operations, and communicated with customers during product sales activities.</p>
+          </article>
+        </li>
 
-        <article class="experience-card reveal">
-          <span class="experience-type">EXTRA CURRICULAR</span>
-          <h3>Faculty Sports & Leadership</h3>
-          <p class="experience-role">Contingent Leader • Athlete • Assistant Coach</p>
-          <p>Served as contingent leader for the faculty, participated in handball and football, and supported the basketball team as an assistant coach.</p>
-        </article>
+        <li class="timeline-item reveal">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <article class="experience-card">
+            <div class="experience-top">
+              <span class="experience-type">Business &amp; market analysis</span>
+            </div>
+            <h3>Collectibles Reseller &amp; Product Sourcing Assistant</h3>
+            <p class="experience-role">Customer Demand &amp; Product Marketability</p>
+            <p>Analysed customer demand and product marketability for collectible products, sourcing items based on customer interests and market needs.</p>
+          </article>
+        </li>
 
-        <article class="experience-card reveal">
-          <span class="experience-type">BUSINESS & MARKET ANALYSIS</span>
-          <h3>Collectibles Reseller & Product Sourcing Assistant</h3>
-          <p class="experience-role">Customer Demand & Product Marketability</p>
-          <p>Analysed customer demand and product marketability in collectible products while sourcing items based on customer interests and market needs.</p>
-        </article>
+        <li class="timeline-item reveal">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <article class="experience-card">
+            <div class="experience-top">
+              <span class="experience-type">Leadership &amp; extracurricular</span>
+            </div>
+            <h3>Faculty Sports &amp; Leadership</h3>
+            <p class="experience-role">Contingent Leader • Athlete • Assistant Coach</p>
+            <p>Led the faculty contingent, competed in handball and football, and supported the basketball team as an assistant coach.</p>
+          </article>
+        </li>
+      </ol>
 
-        <p class="section-note">
-          Other activities participations such as <strong>Committee Member of University/School, Tribunal Court Event, Guitar Performer UITM</strong>, ,UITM Kuala Terengganu
-        </p>
-
+      <div class="activities reveal">
+        <p class="small-label">Other involvement</p>
+        <div class="chip-wrap">
+          <span>Committee Member — University &amp; School events</span>
+          <span>Tribunal Court Event</span>
+          <span>Guitar Performer, UiTM</span>
+        </div>
       </div>
     </section>
 
+    <!-- ================= CONTACT ================= -->
     <section class="section shell" id="contact">
       <div class="contact-panel reveal">
         <div class="contact-copy">
-          <p class="eyebrow">CONTACT</p>
-          <h2>Reach me out Internship Programme for business, systems, or opportunities.</h2>
+          <p class="eyebrow"><span class="index">05</span> Contact</p>
+          <h2>Let's work together.</h2>
+          <p class="contact-lead">
+            I'm currently looking for an <strong>internship</strong> in business analysis, data, or information systems.
+            If you have an opportunity or just want to connect, my inbox is open.
+          </p>
+          <div class="contact-cta">
+            <a class="button primary magnetic" href="mailto:mzulnasri15@gmail.com">Say hello</a>
+            <button class="button secondary" id="copyEmail" data-email="mzulnasri15@gmail.com">
+              <span>Copy email</span>
+            </button>
+          </div>
         </div>
 
         <div class="contact-links">
           <a href="mailto:mzulnasri15@gmail.com" class="contact-link">
-            <span>Email</span><strong>mzulnasri15@gmail.com ↗</strong>
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <span class="contact-text"><span>Email</span><strong>mzulnasri15@gmail.com</strong></span>
+            <span class="arrow" aria-hidden="true">↗</span>
           </a>
           <a href="https://www.linkedin.com/in/muhamad-zulnasri-ahmad-faizal-790b4442a/" target="_blank" rel="noopener" class="contact-link">
-            <span>LinkedIn</span><strong>View profile ↗</strong>
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></span>
+            <span class="contact-text"><span>LinkedIn</span><strong>Muhamad Zulnasri</strong></span>
+            <span class="arrow" aria-hidden="true">↗</span>
           </a>
           <a href="tel:+60123750711" class="contact-link">
-            <span>Phone</span><strong>012-375 0711 ↗</strong>
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+            <span class="contact-text"><span>Phone</span><strong>012-375 0711</strong></span>
+            <span class="arrow" aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
@@ -245,14 +366,16 @@
   </main>
 
   <footer class="shell">
-    <p>© <span id="year"></span> Zulnasri. </p>
-    <a href="#home">Back to top ↑</a>
+    <p>© <span id="year"></span> Muhamad Zulnasri Ahmad Faizal</p>
+    <a href="#home" class="back-top">Back to top ↑</a>
   </footer>
 
-  <dialog id="projectModal" class="project-modal">
+  <dialog id="projectModal" class="project-modal" aria-labelledby="modalTitle">
     <button id="closeModal" class="modal-close" aria-label="Close project details">×</button>
     <div id="modalContent"></div>
   </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="projects.js"></script>
   <script src="script.js"></script>
